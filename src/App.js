@@ -171,7 +171,7 @@ function App() {
 
 
 
-  
+
   const handleReadCustomContract = async () => {
     const contract_id = '2W9NoIJM1SuaFUaSOJsui_5lD_NvCHTjez5HKe2SjYU'
     const readCustomContract = await othent.readCustomContract({contract_id})
