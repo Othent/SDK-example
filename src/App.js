@@ -49,7 +49,7 @@ function App() {
       const response = await othent.signTransactionWarp({
         othentFunction: 'sendTransaction', 
         data: {
-          toContractId: 'XL_AtkccUxD45_Be76Qe_lSt8q9amgEO9OQnhIo-2xI', 
+          toContractId: '2W9NoIJM1SuaFUaSOJsui_5lD_NvCHTjez5HKe2SjYU', 
           toContractFunction: 'createPost', 
           txnData: { blog_entry_18: 'Hello World!'} 
         }, 
@@ -71,7 +71,7 @@ function App() {
       const signedTransaction = await othent.signTransactionWarp({
         othentFunction: 'sendTransaction', 
         data: {
-          toContractId: 'XL_AtkccUxD45_Be76Qe_lSt8q9amgEO9OQnhIo-2xI', 
+          toContractId: '2W9NoIJM1SuaFUaSOJsui_5lD_NvCHTjez5HKe2SjYU', 
           toContractFunction: 'createPost', 
           txnData: { blog_entry_18: 'Hello World!'} 
         }, 
@@ -162,9 +162,20 @@ function App() {
 
 
   const handleJWKBackupTxnClick = async () => {
-    const JWK_signed_JWT = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJnb29nbGUtb2F1dGgyfDExMzM3ODIxNjg3NjIxNjM0NjAxNiIsImNvbnRyYWN0X2lkIjoiVGIzM0l0UGx0dE5ZdEFCak1vMDNnSzQyNXZDY1lZTVg0YzdpOFdfSTJYMCIsInRhZ3MiOlt7Im5hbWUiOiJUZXN0IiwidmFsdWUiOiJIZWxsbyBXb3JsZCJ9XSwiY29udHJhY3RfaW5wdXQiOnsiZGF0YSI6eyJ0b0NvbnRyYWN0RnVuY3Rpb24iOiJjcmVhdGVQb3N0IiwidG9Db250cmFjdElkIjoiWExfQXRrY2NVeEQ0NV9CZTc2UWVfbFN0OHE5YW1nRU85T1FuaElvLTJ4SSIsInR4bkRhdGEiOnsiYmxvZ19wb3N0XzEiOiJKV0sgVFhOISJ9fSwiZnVuY3Rpb24iOiJKV0tCYWNrdXBUeG4ifSwiaWF0IjoxNjgxODEyNDYxLCJleHAiOjIwNDE4MTI0NjEsImlzcyI6Imh0dHBzOi8vT3RoZW50LmlvIn0.DUUmcOKn4r27aAqyV2yhLWNgLAa-59qQo76sLBZgrAaXLS0LbFybxk0vJkHSCs99H-yDMxyRS00k9aYRnaitGgwAP2m8C2nJh0hcBaLAcqDwE28Gon7ed8_ItTZoQ5cK72v_Cbrbq-yeQYnJVacrNgjGwhAB309lTeY8F7dAWiq24NaI6Y3cHGcfsSkdAPxWm4FdsV4e7QKDet3BQDdkgi0x7339Ut09NjMUGK4amqk35Wums5r0oLGGGUmKoiKUNXc6cXijJgg1p5zbq2hreghY5tDW9dM-jqtirKh3c8jedfBequdFZ46RUSsNhTvRPOOitwiy0p9lCHEt5cseKqDI7IzxsdZtq_7CTmTVdA0v-7hZeTD2nQxb5Z40JLtebsXpNNjfQIh2s-nxOIp4k1U4kfqGp3FArBOo8bfiEKY1dtA2yGsI-j_pTgNLMjGqHmkyRa3YCQAoEJAANsavWiZ9XwbpSxo35p0CRK-X7HOQtPgyFXoKpl3MCfnVRxLIYmz6XBGHMJlqrKAhk2ed642DqR9-SOneN-JPMIqlU8BHPBQ8qwSDrgd2AvU2dtWbE3IYzWUB_rcS2uMUDd4-bHegHoMNCV7ZeUh_i28rLsrcYNwc2WSzUUnqAvRKFt3Mbqx26hAiJhcEzA9tvD7TRdOBEzSfVXENjcm556OJRPw'
+    const JWK_signed_JWT = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJnb29nbGUtb2F1dGgyfDExMzM3ODIxNjg3NjIxNjM0NjAxNiIsImNvbnRyYWN0X2lkIjoiVGIzM0l0UGx0dE5ZdEFCak1vMDNnSzQyNXZDY1lZTVg0YzdpOFdfSTJYMCIsInRhZ3MiOlt7Im5hbWUiOiJUZXN0IiwidmFsdWUiOiJIZWxsbyBXb3JsZCJ9XSwiY29udHJhY3RfaW5wdXQiOnsiZGF0YSI6eyJ0b0NvbnRyYWN0RnVuY3Rpb24iOiJjcmVhdGVQb3N0IiwidG9Db250cmFjdElkIjoiWExfQXRrY2NVeEQ0NV9CZTc2UWVfbFN0OHE5YW1nRU85T1FuaElvLTJ4SSIsInR4bkRhdGEiOnsiYmxvZ19wb3N0XzEiOiJKV0sgVFhOISJ9fSwib3RoZW50RnVuY3Rpb24iOiJKV0tCYWNrdXBUeG4ifSwiaWF0IjoxNjgxODQyMDY2LCJleHAiOjIwNDE4NDIwNjYsImlzcyI6Imh0dHBzOi8vT3RoZW50LmlvIn0.QLnDkr4qrNhCjWt9se08IiLE0lESQaM31DJ5udXTvX7cKc6pQiVDo-5lLX9GDE3aK0Q1TGAiCm7koqViADZXrgj1SoNI6DBqo5eBoZdqdDp5-BjVcfaJHy_PM9x3gUcCwMiq271ExItLk4f4rx_Rt_xzMxHAJ6cMWe1D-eEERmrQ_itdM6Wo10u0bf0pbLIBbbe_6-2mdaCnS2nNHoCAncaOyrDy4EwaiOeZRnfeBbNNFE839ky-CgTrxft2y_nrl9B0S-bBHUpOU28Gw8YGDsRn2FfRF8ds1SxA3mDYRxBH2MgexXy0VupXnWuvEtug2HDMDWrkXhmP2JzWzckAjQAVXYSgGaQXGNtOzoodgPC1bGuGKLIuVb9M9uBkthLNSzjFQNXODaXW6wumcFKH32jiOpOY3V-eb-3sTpljDjaOuq_RZaG0auncf65aQYkYTsKB3XbgYzJ5MA8DCoZmqYtIRNvlrEMGCgxqDZagxvCM2HesI86evfVfhrIsqW7JJ0f9VGVsLV6eCIq2cIVIBXN_7JvxXitVC_Zs-5ZzhEbeZnOWhU46bMBjtVKarQdDrYdJBZdfHvB5vXQmTIi61m4pLPGFCxYx_33GNE2cZ5-ml9cy0GKYIR1VyFi_4RF7YQM_DH0WkqOm7hOOdP4FiBxrxvR4wSRvvoulcZG4kG4'
     const JWKBackupTxn = await othent.JWKBackupTxn({JWK_signed_JWT})
     const message = 'JWK backup transaction button clicked: ' + JSON.stringify(JWKBackupTxn);
+    console.log(message);
+    setOutput(message);
+  };
+
+
+
+  
+  const handleReadCustomContract = async () => {
+    const contract_id = '2W9NoIJM1SuaFUaSOJsui_5lD_NvCHTjez5HKe2SjYU'
+    const readCustomContract = await othent.readCustomContract({contract_id})
+    const message = 'Read custom contract button clicked: ' + JSON.stringify(readCustomContract);
     console.log(message);
     setOutput(message);
   };
@@ -199,6 +210,7 @@ function App() {
         <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSend} />
         <button className='button' onClick={handleInitializeJWKClick}>Initialize JWK</button>
         <button className='button' onClick={handleJWKBackupTxnClick}>JWK Backup Txn</button>
+        <button className='button' onClick={handleReadCustomContract}>Read Custom Contract</button>
         
       </div>
 
