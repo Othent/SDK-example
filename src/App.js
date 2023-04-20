@@ -162,7 +162,7 @@ function App() {
 
 
   const handleJWKBackupTxnClick = async () => {
-    const JWK_signed_JWT = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJnb29nbGUtb2F1dGgyfDExMzM3ODIxNjg3NjIxNjM0NjAxNiIsImNvbnRyYWN0X2lkIjoiVGIzM0l0UGx0dE5ZdEFCak1vMDNnSzQyNXZDY1lZTVg0YzdpOFdfSTJYMCIsInRhZ3MiOlt7Im5hbWUiOiJUZXN0IiwidmFsdWUiOiJIZWxsbyBXb3JsZCJ9XSwiY29udHJhY3RfaW5wdXQiOnsiZGF0YSI6eyJ0b0NvbnRyYWN0RnVuY3Rpb24iOiJjcmVhdGVQb3N0IiwidG9Db250cmFjdElkIjoiWExfQXRrY2NVeEQ0NV9CZTc2UWVfbFN0OHE5YW1nRU85T1FuaElvLTJ4SSIsInR4bkRhdGEiOnsiYmxvZ19wb3N0XzEiOiJKV0sgVFhOISJ9fSwib3RoZW50RnVuY3Rpb24iOiJKV0tCYWNrdXBUeG4ifSwiaWF0IjoxNjgxODQyMDY2LCJleHAiOjIwNDE4NDIwNjYsImlzcyI6Imh0dHBzOi8vT3RoZW50LmlvIn0.QLnDkr4qrNhCjWt9se08IiLE0lESQaM31DJ5udXTvX7cKc6pQiVDo-5lLX9GDE3aK0Q1TGAiCm7koqViADZXrgj1SoNI6DBqo5eBoZdqdDp5-BjVcfaJHy_PM9x3gUcCwMiq271ExItLk4f4rx_Rt_xzMxHAJ6cMWe1D-eEERmrQ_itdM6Wo10u0bf0pbLIBbbe_6-2mdaCnS2nNHoCAncaOyrDy4EwaiOeZRnfeBbNNFE839ky-CgTrxft2y_nrl9B0S-bBHUpOU28Gw8YGDsRn2FfRF8ds1SxA3mDYRxBH2MgexXy0VupXnWuvEtug2HDMDWrkXhmP2JzWzckAjQAVXYSgGaQXGNtOzoodgPC1bGuGKLIuVb9M9uBkthLNSzjFQNXODaXW6wumcFKH32jiOpOY3V-eb-3sTpljDjaOuq_RZaG0auncf65aQYkYTsKB3XbgYzJ5MA8DCoZmqYtIRNvlrEMGCgxqDZagxvCM2HesI86evfVfhrIsqW7JJ0f9VGVsLV6eCIq2cIVIBXN_7JvxXitVC_Zs-5ZzhEbeZnOWhU46bMBjtVKarQdDrYdJBZdfHvB5vXQmTIi61m4pLPGFCxYx_33GNE2cZ5-ml9cy0GKYIR1VyFi_4RF7YQM_DH0WkqOm7hOOdP4FiBxrxvR4wSRvvoulcZG4kG4'
+    const JWK_signed_JWT = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJnb29nbGUtb2F1dGgyfDExMzM3ODIxNjg3NjIxNjM0NjAxNiIsImNvbnRyYWN0X2lkIjoicXYtSjJIVm04ZWV6M0VOaVN3S2FWdVZSajFkYlhRMDZOQkI1NkdJNnRhbyIsInRhZ3MiOlt7Im5hbWUiOiJUZXN0IiwidmFsdWUiOiJKV0tKV0tKV0sifV0sImNvbnRyYWN0X2lucHV0Ijp7ImRhdGEiOnsidG9Db250cmFjdEZ1bmN0aW9uIjoiY3JlYXRlUG9zdCIsInRvQ29udHJhY3RJZCI6IjJXOU5vSUpNMVN1YUZVYVNPSnN1aV81bERfTnZDSFRqZXo1SEtlMlNqWVUiLCJ0eG5EYXRhIjp7ImJsb2dfcG9zdF8xIjoiQkFISEhISEhISEhIISJ9fSwib3RoZW50RnVuY3Rpb24iOiJKV0tCYWNrdXBUeG4ifSwiaWF0IjoxNjgyMDM0NjU3LCJleHAiOjIwNDIwMzQ2NTcsImlzcyI6Imh0dHBzOi8vT3RoZW50LmlvIn0.KdEbgqKLOg2mQf8txKfra1RXV24apWsxx9beSnseKDs-mGWE6XIiWT3SeI2BGLNlQcfMqVyAOnGUVt4tbV-wDLF8IeVUKQpYvSnQRSjI9-0OvlC4lDF33EAH7qWg5n4Oof7belNr1-jHdS448G5Yn4u8VWtUizYKDrIMz7z-6wce8J3thf85BO7GqS0m2Gl-YwMPlxw7TvFBGufp0SnMKEq1ISayJevMKnubTM13jdF3Slsv9pZ5hZ1mA_aofIkbH3pvxtBdv3VSf_QNALasloCNmduHrXNv4QdX0sIp1N6VGDEi5cqsrWHUUe4Vuep1BaQx3vK3NTg_qYJU6cgHlPF4NnBNQEWcFupb5NL6uXIcrutY29ClaYfbm1tN_NmSZjyMcgPGOVtLcJy_nY9GRKy_0bo_WFrpgfvcWJtQ3dnC6iD_hg87BDLWgCzkA_0yL-Tkt2JDVfumzHDsReYbixyV-H1c-UCm8XC0UpGRV0Fv0lNP0fmkzXqH8USxaQ0Dylj5QoK_CbRNq9eXNT6uaBs_XAwuGm8hoOVIXLqnN0pbHUnRZopNAb5q8qvdGXI20dbOZfIcwiELM8Vx_z8KSv4jmLF6i8b4HbF9bnAyZRvDPB36PAM6hYP7KPb3Rl46pOxxdXk5Q4xquKRLNQW1U8G9WvpkUiJ4PyZHe2hz8B0'
     const JWKBackupTxn = await othent.JWKBackupTxn({JWK_signed_JWT})
     const message = 'JWK backup transaction button clicked: ' + JSON.stringify(JWKBackupTxn);
     console.log(message);
@@ -208,8 +208,8 @@ function App() {
         <button className='button' onClick={handleSendTransactionWarp}>Send Transaction Warp</button>
         <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSign} />
         <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSend} />
-        <button className='button' onClick={handleInitializeJWKClick}>Initialize JWK</button>
-        <button className='button' onClick={handleJWKBackupTxnClick}>JWK Backup Txn</button>
+        <button className='button' onClick={handleInitializeJWKClick}>Initialize JWK (WILL COMPROMISE WALLET)</button>
+        <button className='button' onClick={handleJWKBackupTxnClick}>JWK Backup Txn  (WILL COMPROMISE WALLET)</button>
         <button className='button' onClick={handleReadCustomContract}>Read Custom Contract</button>
         
       </div>
