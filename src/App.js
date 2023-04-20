@@ -193,7 +193,7 @@ function App() {
       <div className='output-container'>
         <img alt='othent-logo' src='https://avatars.githubusercontent.com/u/118553412?s=200&v=4' className='img' />
         <div className="title">Othent SDK testing</div>
-        <div className="title-small">Using LIVE Othent package: <a rel="noreferrer" href='https://github.com/Othent/SDK-site' target='_blank'>https://github.com/Othent/SDK-site</a></div>
+        <div className="title-small">Using LIVE Othent package: <a rel="noreferrer" href='https://github.com/Othent/SDK-example' target='_blank'>https://github.com/Othent/SDK-example</a></div>
         <div className="output">{output}</div>
       </div>
 
