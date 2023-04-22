@@ -73,7 +73,7 @@ function App() {
         data: {
           toContractId: '2W9NoIJM1SuaFUaSOJsui_5lD_NvCHTjez5HKe2SjYU', 
           toContractFunction: 'createPost', 
-          txnData: { blog_entry: 'LORIMER!'} 
+          txnData: { blog_entry: 'Spoons!'} 
         }, 
         tags: [ {name: 'Test', value: 'Tag'} ]
       });
