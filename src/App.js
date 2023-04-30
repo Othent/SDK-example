@@ -51,9 +51,11 @@ function App() {
         data: {
           toContractId: '2W9NoIJM1SuaFUaSOJsui_5lD_NvCHTjez5HKe2SjYU', 
           toContractFunction: 'createPost', 
-          txnData: { blog_entry_18: 'Hello World!'} 
+          txnData: { post: 'Hello World!' } 
         }, 
-        tags: [ {name: 'Test', value: 'Tag'} ]
+        tags: [ 
+          {name: 'Test', value: 'Tag'} 
+        ]
       });
       const message = 'Sign transaction Warp button clicked: ' + JSON.stringify(response)
       setOutput(JSON.stringify(message));
@@ -73,9 +75,11 @@ function App() {
         data: {
           toContractId: '2W9NoIJM1SuaFUaSOJsui_5lD_NvCHTjez5HKe2SjYU', 
           toContractFunction: 'createPost', 
-          txnData: { blog_entry: 'Spoons!'} 
+          txnData: { post: 'Hello World!' } 
         }, 
-        tags: [ {name: 'Test', value: 'Tag'} ]
+        tags: [ 
+          {name: 'Test', value: 'Tag'} 
+        ]
       });
 
       const response = await othent.sendTransactionWarp(signedTransaction);
@@ -96,7 +100,7 @@ function App() {
         othentFunction: 'uploadData', 
         data: file,
         tags: [
-          {name: 'Test', value: 'Tag'},
+          {name: 'Content-Type', value: 'img/png'},
         ]
       });
       const message = 'Sign transaction Arweave button clicked: ' + JSON.stringify(response)
@@ -119,7 +123,9 @@ function App() {
       const signedTransaction = await othent.signTransactionArweave({
         othentFunction: 'uploadData', 
         data: file,
-        tags: [ {name: 'Test', value: 'Tag'} ]
+        tags: [ 
+          {name: 'Content-Type', value: 'img/png'} 
+        ]
       });
 
       const response = await othent.sendTransactionArweave(signedTransaction);
@@ -143,7 +149,7 @@ function App() {
         othentFunction: 'uploadData', 
         data: file,
         tags: [
-          {name: 'Test', value: 'Tag'},
+          {name: 'Content-Type', value: 'img/png'},
         ]
       });
       const message = 'Sign transaction Bundlr button clicked: ' + JSON.stringify(response)
@@ -166,7 +172,9 @@ function App() {
       const signedTransaction = await othent.signTransactionBundlr({
         othentFunction: 'uploadData', 
         data: file,
-        tags: [ {name: 'Test', value: 'Tag'} ]
+        tags: [ 
+          {name: 'Content-Type', value: 'img/png'} 
+        ]
       });
 
       const response = await othent.sendTransactionBundlr(signedTransaction);
@@ -262,10 +270,27 @@ function App() {
         </div>
 
         <div className="buttons">
-          <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSignArweave} />
-          <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSendArweave} />
-          <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSignBundlr} />
-          <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSendBundlr} />
+
+          <label className='button' htmlFor="file-input-sign-a">
+            <span>Sign Arweave Data</span>
+          </label>
+          <input id="file-input-sign-a" type="file" onChange={handleFileUploadSignArweave} />
+
+          <label className='button' htmlFor="file-input-upload-a">
+            <span>Upload Arweave Data</span>
+          </label>
+          <input id="file-input-upload-a" type="file" onChange={handleFileUploadSendArweave} />
+
+          <label className='button' htmlFor="file-input-sign-b">
+            <span>Sign Bundlr Data</span>
+          </label>
+          <input id="file-input-sign-b" type="file" onChange={handleFileUploadSignBundlr} />
+
+          <label className='button' htmlFor="file-input-upload-b">
+            <span>Upload Bundlr Data</span>
+          </label>
+          <input id="file-input-upload-b" type="file" onChange={handleFileUploadSendBundlr} />
+
         </div>
 
         <div className="buttons">
