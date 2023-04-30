@@ -253,52 +253,41 @@ function App() {
       </div>
 
 
-      <div className='buttons-div'>
+      <div class="buttons-container">
+        <button class="button" onClick={handlePingClick}>Ping</button>
+        <button class="button" onClick={handleLogInClick}>Log In</button>
+        <button class="button" onClick={handleLogOutClick}>Log Out</button>
+        <button class="button" onClick={handleUserDetailsClick}>User Details</button>
 
-        <div className="buttons">
-          <button className='button' onClick={handlePingClick}>Ping</button>
-          <button className='button' onClick={handleLogInClick}>Log In</button>
-          <button className='button' onClick={handleLogOutClick}>Log Out</button>
-          <button className='button' onClick={handleUserDetailsClick}>User Details</button>
-        </div>
+        <button class="button" onClick={handleReadContractClick}>Read Contract</button>
+        <button class="button" onClick={handleSignTransactionWarp}>Sign Transaction Warp</button>
+        <button class="button" onClick={handleSendTransactionWarp}>Send Transaction Warp</button>
+        <button class="button" onClick={handleReadCustomContract}>Read Custom Contract</button>
 
-        <div className="buttons">
-          <button className='button' onClick={handleReadContractClick}>Read Contract</button>
-          <button className='button' onClick={handleSignTransactionWarp}>Sign Transaction Warp</button>
-          <button className='button' onClick={handleSendTransactionWarp}>Send Transaction Warp</button>
-          <button className='button' onClick={handleReadCustomContract}>Read Custom Contract</button>
-        </div>
+        <label class="upload-button" htmlFor="file-input-sign-a">
+          <span>Sign Arweave Data</span>
+        </label>
+        <input id="file-input-sign-a" type="file" onChange={handleFileUploadSignArweave} />
 
-        <div className="buttons">
+        <label class="upload-button" htmlFor="file-input-upload-a">
+          <span>Upload Arweave Data</span>
+        </label>
+        <input id="file-input-upload-a" type="file" onChange={handleFileUploadSendArweave} />
 
-          <label className='button' htmlFor="file-input-sign-a">
-            <span>Sign Arweave Data</span>
-          </label>
-          <input id="file-input-sign-a" type="file" onChange={handleFileUploadSignArweave} />
+        <label class="upload-button" htmlFor="file-input-sign-b">
+          <span>Sign Bundlr Data</span>
+        </label>
+        <input id="file-input-sign-b" type="file" onChange={handleFileUploadSignBundlr} />
 
-          <label className='button' htmlFor="file-input-upload-a">
-            <span>Upload Arweave Data</span>
-          </label>
-          <input id="file-input-upload-a" type="file" onChange={handleFileUploadSendArweave} />
+        <label class="upload-button" htmlFor="file-input-upload-b">
+          <span>Upload Bundlr Data</span>
+        </label>
+        <input id="file-input-upload-b" type="file" onChange={handleFileUploadSendBundlr} />
 
-          <label className='button' htmlFor="file-input-sign-b">
-            <span>Sign Bundlr Data</span>
-          </label>
-          <input id="file-input-sign-b" type="file" onChange={handleFileUploadSignBundlr} />
-
-          <label className='button' htmlFor="file-input-upload-b">
-            <span>Upload Bundlr Data</span>
-          </label>
-          <input id="file-input-upload-b" type="file" onChange={handleFileUploadSendBundlr} />
-
-        </div>
-
-        <div className="buttons">
-          <button className='button' onClick={handleInitializeJWKClick}>Initialize JWK (WILL COMPROMISE WALLET)</button>
-          <button className='button' onClick={handleJWKBackupTxnClick}>JWK Backup Txn  (WILL COMPROMISE WALLET)</button>
-        </div>
-
+        <button class="button" onClick={handleInitializeJWKClick}>Initialize JWK (WILL COMPROMISE WALLET)</button>
+        <button class="button" onClick={handleJWKBackupTxnClick}>JWK Backup Txn  (WILL COMPROMISE WALLET)</button>
       </div>
+
 
 
     </div>
