@@ -106,7 +106,7 @@ function App() {
       setOutput(JSON.stringify(error));
     }
   };
-  const handleFileUploadSign = async (event) => {
+  const handleFileUploadSignArweave = async (event) => {
     const file = event.target.files[0];
     await handleSignTransactionArweave(file);
   };
@@ -130,9 +130,56 @@ function App() {
       setOutput(JSON.stringify(error));
     }
   };
-  const handleFileUploadSend = async (event) => {
+  const handleFileUploadSendArweave = async (event) => {
     const file = event.target.files[0];
     await handleSendTransactionArweave(file);
+  };
+
+
+
+  const handleSignTransactionBundlr = async (file) => {
+    try {
+      const response = await othent.signTransactionBundlr({
+        othentFunction: 'uploadData', 
+        data: file,
+        tags: [
+          {name: 'Test', value: 'Tag'},
+        ]
+      });
+      const message = 'Sign transaction Bundlr button clicked: ' + JSON.stringify(response)
+      setOutput(JSON.stringify(message));
+      console.log(message)
+    } catch (error) {
+      setOutput(JSON.stringify(error));
+    }
+  };
+  const handleFileUploadSignBundlr = async (event) => {
+    const file = event.target.files[0];
+    await handleSignTransactionBundlr(file);
+  };
+  
+
+
+
+  const handleSendTransactionBundlr = async (file) => {
+    try {
+      const signedTransaction = await othent.signTransactionBundlr({
+        othentFunction: 'uploadData', 
+        data: file,
+        tags: [ {name: 'Test', value: 'Tag'} ]
+      });
+
+      const response = await othent.sendTransactionBundlr(signedTransaction);
+      const message = 'Send transaction Bundlr button clicked: ' + JSON.stringify(response)
+      console.log(response)
+      setOutput(message);
+    } catch (error) {
+      setOutput(JSON.stringify(error));
+    }
+  };
+  const handleFileUploadSendBundlr = async (event) => {
+    const file = event.target.files[0];
+    await handleSendTransactionBundlr(file);
   };
 
 
@@ -197,22 +244,37 @@ function App() {
         <div className="output">{output}</div>
       </div>
 
-      <div className="buttons">
-        
-        <button className='button' onClick={handlePingClick}>Ping</button>
-        <button className='button' onClick={handleLogInClick}>Log In</button>
-        <button className='button' onClick={handleLogOutClick}>Log Out</button>
-        <button className='button' onClick={handleUserDetailsClick}>User Details</button>
-        <button className='button' onClick={handleReadContractClick}>Read Contract</button>
-        <button className='button' onClick={handleSignTransactionWarp}>Sign Transaction Warp</button>
-        <button className='button' onClick={handleSendTransactionWarp}>Send Transaction Warp</button>
-        <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSign} />
-        <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSend} />
-        <button className='button' onClick={handleInitializeJWKClick}>Initialize JWK (WILL COMPROMISE WALLET)</button>
-        <button className='button' onClick={handleJWKBackupTxnClick}>JWK Backup Txn  (WILL COMPROMISE WALLET)</button>
-        <button className='button' onClick={handleReadCustomContract}>Read Custom Contract</button>
-        
+
+      <div className='buttons-div'>
+
+        <div className="buttons">
+          <button className='button' onClick={handlePingClick}>Ping</button>
+          <button className='button' onClick={handleLogInClick}>Log In</button>
+          <button className='button' onClick={handleLogOutClick}>Log Out</button>
+          <button className='button' onClick={handleUserDetailsClick}>User Details</button>
+        </div>
+
+        <div className="buttons">
+          <button className='button' onClick={handleReadContractClick}>Read Contract</button>
+          <button className='button' onClick={handleSignTransactionWarp}>Sign Transaction Warp</button>
+          <button className='button' onClick={handleSendTransactionWarp}>Send Transaction Warp</button>
+          <button className='button' onClick={handleReadCustomContract}>Read Custom Contract</button>
+        </div>
+
+        <div className="buttons">
+          <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSignArweave} />
+          <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSendArweave} />
+          <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSignBundlr} />
+          <input id="file-input" className='file-input' type="file" onChange={handleFileUploadSendBundlr} />
+        </div>
+
+        <div className="buttons">
+          <button className='button' onClick={handleInitializeJWKClick}>Initialize JWK (WILL COMPROMISE WALLET)</button>
+          <button className='button' onClick={handleJWKBackupTxnClick}>JWK Backup Txn  (WILL COMPROMISE WALLET)</button>
+        </div>
+
       </div>
+
 
     </div>
   );
