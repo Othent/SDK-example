@@ -1,21 +1,34 @@
 import './App.css';
-import othent from 'othent';
+import { Othent, getAPIKeys } from 'othent';
 import { useState } from 'react';
 
 
+
 function App() {
+
 
   const [output, setOutput] = useState('*** Output Response ***');
 
 
   const handlePingClick = async () => {
+    const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
     const ping = await othent.ping();
     const message = 'Ping button clicked: ' + JSON.stringify(ping);
     console.log(message);
     setOutput(message);
   };
 
+
+  const handleGetAPIKeys = async () => {
+    const API_keys = await getAPIKeys()
+    const message = 'Get API keys button clicked: ' + JSON.stringify(API_keys);
+    console.log(message);
+    setOutput(message);
+  };
+
+
   const handleLogInClick = async () => {
+    const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
     const logIn = await othent.logIn()
     const message = 'Log In button clicked: ' + JSON.stringify(logIn);
     console.log(message);
@@ -23,6 +36,7 @@ function App() {
   };
 
   const handleLogOutClick = async () => {
+    const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
     const logOut = await othent.logOut()
     const message = 'Log Out button clicked: ' + JSON.stringify(logOut);
     console.log(message);
@@ -30,6 +44,7 @@ function App() {
   };
 
   const handleUserDetailsClick = async () => {
+    const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
     const userDetails = await othent.userDetails()
     const message = 'User Details button clicked: ' + JSON.stringify(userDetails);
     console.log(message);
@@ -37,6 +52,7 @@ function App() {
   };
 
   const handleReadContractClick = async () => {
+    const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
     const readContract = await othent.readContract()
     const message = 'Read Contract button clicked: ' + JSON.stringify(readContract);
     console.log(message);
@@ -46,6 +62,7 @@ function App() {
 
   const handleSignTransactionWarp = async () => {
     try {
+      const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
       const response = await othent.signTransactionWarp({
         othentFunction: 'sendTransaction', 
         data: {
@@ -70,6 +87,7 @@ function App() {
 
   const handleSendTransactionWarp = async () => {
     try {
+      const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
       const signedTransaction = await othent.signTransactionWarp({
         othentFunction: 'sendTransaction', 
         data: {
@@ -96,6 +114,7 @@ function App() {
 
   const handleSignTransactionArweave = async (file) => {
     try {
+      const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
       const response = await othent.signTransactionArweave({
         othentFunction: 'uploadData', 
         data: file,
@@ -120,6 +139,7 @@ function App() {
 
   const handleSendTransactionArweave = async (file) => {
     try {
+      const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
       const signedTransaction = await othent.signTransactionArweave({
         othentFunction: 'uploadData', 
         data: file,
@@ -145,6 +165,7 @@ function App() {
 
   const handleSignTransactionBundlr = async (file) => {
     try {
+      const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
       const response = await othent.signTransactionBundlr({
         othentFunction: 'uploadData', 
         data: file,
@@ -169,6 +190,7 @@ function App() {
 
   const handleSendTransactionBundlr = async (file) => {
     try {
+      const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
       const signedTransaction = await othent.signTransactionBundlr({
         othentFunction: 'uploadData', 
         data: file,
@@ -208,6 +230,7 @@ function App() {
     Opy/0Yb8RMNKoX0QvUeD7NOK+hXBwIDBgm+QrDjgHQ6+RXs72cMiHjl2aib/YRwb
     wW68pg9G6C+iSM9MMwlbBv0CAwEAAQ==
     -----END PUBLIC KEY-----`
+    const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
     const initializeJWK = await othent.initializeJWK({JWK_public_key: JWK_public_key})
     const message = 'Backup Keyfile button clicked: ' + JSON.stringify(initializeJWK);
     console.log(message);
@@ -218,6 +241,7 @@ function App() {
 
   const handleJWKBackupTxnClick = async () => {
     const JWK_signed_JWT = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJnb29nbGUtb2F1dGgyfDExMzM3ODIxNjg3NjIxNjM0NjAxNiIsImNvbnRyYWN0X2lkIjoicXYtSjJIVm04ZWV6M0VOaVN3S2FWdVZSajFkYlhRMDZOQkI1NkdJNnRhbyIsInRhZ3MiOlt7Im5hbWUiOiJUZXN0IiwidmFsdWUiOiJKV0tKV0tKV0sifV0sImNvbnRyYWN0X2lucHV0Ijp7ImRhdGEiOnsidG9Db250cmFjdEZ1bmN0aW9uIjoiY3JlYXRlUG9zdCIsInRvQ29udHJhY3RJZCI6IjJXOU5vSUpNMVN1YUZVYVNPSnN1aV81bERfTnZDSFRqZXo1SEtlMlNqWVUiLCJ0eG5EYXRhIjp7ImJsb2dfcG9zdF8xIjoiQkFISEhISEhISEhIISJ9fSwib3RoZW50RnVuY3Rpb24iOiJKV0tCYWNrdXBUeG4ifSwiaWF0IjoxNjgyMDM0NjU3LCJleHAiOjIwNDIwMzQ2NTcsImlzcyI6Imh0dHBzOi8vT3RoZW50LmlvIn0.KdEbgqKLOg2mQf8txKfra1RXV24apWsxx9beSnseKDs-mGWE6XIiWT3SeI2BGLNlQcfMqVyAOnGUVt4tbV-wDLF8IeVUKQpYvSnQRSjI9-0OvlC4lDF33EAH7qWg5n4Oof7belNr1-jHdS448G5Yn4u8VWtUizYKDrIMz7z-6wce8J3thf85BO7GqS0m2Gl-YwMPlxw7TvFBGufp0SnMKEq1ISayJevMKnubTM13jdF3Slsv9pZ5hZ1mA_aofIkbH3pvxtBdv3VSf_QNALasloCNmduHrXNv4QdX0sIp1N6VGDEi5cqsrWHUUe4Vuep1BaQx3vK3NTg_qYJU6cgHlPF4NnBNQEWcFupb5NL6uXIcrutY29ClaYfbm1tN_NmSZjyMcgPGOVtLcJy_nY9GRKy_0bo_WFrpgfvcWJtQ3dnC6iD_hg87BDLWgCzkA_0yL-Tkt2JDVfumzHDsReYbixyV-H1c-UCm8XC0UpGRV0Fv0lNP0fmkzXqH8USxaQ0Dylj5QoK_CbRNq9eXNT6uaBs_XAwuGm8hoOVIXLqnN0pbHUnRZopNAb5q8qvdGXI20dbOZfIcwiELM8Vx_z8KSv4jmLF6i8b4HbF9bnAyZRvDPB36PAM6hYP7KPb3Rl46pOxxdXk5Q4xquKRLNQW1U8G9WvpkUiJ4PyZHe2hz8B0'
+    const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
     const JWKBackupTxn = await othent.JWKBackupTxn({JWK_signed_JWT})
     const message = 'JWK backup transaction button clicked: ' + JSON.stringify(JWKBackupTxn);
     console.log(message);
@@ -229,6 +253,7 @@ function App() {
 
   const handleReadCustomContract = async () => {
     const contract_id = '2W9NoIJM1SuaFUaSOJsui_5lD_NvCHTjez5HKe2SjYU'
+    const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
     const readCustomContract = await othent.readCustomContract({contract_id})
     const message = 'Read custom contract button clicked: ' + JSON.stringify(readCustomContract);
     console.log(message);
@@ -253,39 +278,40 @@ function App() {
       </div>
 
 
-      <div class="buttons-container">
-        <button class="button" onClick={handlePingClick}>Ping</button>
-        <button class="button" onClick={handleLogInClick}>Log In</button>
-        <button class="button" onClick={handleLogOutClick}>Log Out</button>
-        <button class="button" onClick={handleUserDetailsClick}>User Details</button>
+      <div className="buttons-container">
+        <button className="button" onClick={handlePingClick}>Ping</button>
+        <button className="button" onClick={handleGetAPIKeys}>API Keys</button>
+        <button className="button" onClick={handleLogInClick}>Log In</button>
+        <button className="button" onClick={handleLogOutClick}>Log Out</button>
+        <button className="button" onClick={handleUserDetailsClick}>User Details</button>
 
-        <button class="button" onClick={handleReadContractClick}>Read Contract</button>
-        <button class="button" onClick={handleSignTransactionWarp}>Sign Transaction Warp</button>
-        <button class="button" onClick={handleSendTransactionWarp}>Send Transaction Warp</button>
-        <button class="button" onClick={handleReadCustomContract}>Read Custom Contract</button>
+        <button className="button" onClick={handleReadContractClick}>Read Contract</button>
+        <button className="button" onClick={handleSignTransactionWarp}>Sign Transaction Warp</button>
+        <button className="button" onClick={handleSendTransactionWarp}>Send Transaction Warp</button>
+        <button className="button" onClick={handleReadCustomContract}>Read Custom Contract</button>
 
-        <label class="upload-button" htmlFor="file-input-sign-a">
+        <label className="upload-button" htmlFor="file-input-sign-a">
           <span>Sign Arweave Data</span>
         </label>
         <input id="file-input-sign-a" type="file" onChange={handleFileUploadSignArweave} />
 
-        <label class="upload-button" htmlFor="file-input-upload-a">
+        <label className="upload-button" htmlFor="file-input-upload-a">
           <span>Upload Arweave Data</span>
         </label>
         <input id="file-input-upload-a" type="file" onChange={handleFileUploadSendArweave} />
 
-        <label class="upload-button" htmlFor="file-input-sign-b">
+        <label className="upload-button" htmlFor="file-input-sign-b">
           <span>Sign Bundlr Data</span>
         </label>
         <input id="file-input-sign-b" type="file" onChange={handleFileUploadSignBundlr} />
 
-        <label class="upload-button" htmlFor="file-input-upload-b">
+        <label className="upload-button" htmlFor="file-input-upload-b">
           <span>Upload Bundlr Data</span>
         </label>
         <input id="file-input-upload-b" type="file" onChange={handleFileUploadSendBundlr} />
 
-        <button class="button" onClick={handleInitializeJWKClick}>Initialize JWK (WILL COMPROMISE WALLET)</button>
-        <button class="button" onClick={handleJWKBackupTxnClick}>JWK Backup Txn  (WILL COMPROMISE WALLET)</button>
+        <button className="button" onClick={handleInitializeJWKClick}>Initialize JWK (WILL COMPROMISE WALLET)</button>
+        <button className="button" onClick={handleJWKBackupTxnClick}>JWK Backup Txn  (WILL COMPROMISE WALLET)</button>
       </div>
 
 
