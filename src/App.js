@@ -1,5 +1,5 @@
 import './App.css';
-import { Othent, getAPIKeys } from 'othent';
+import { Othent } from 'othent';
 import { useState } from 'react';
 
 
@@ -19,8 +19,18 @@ function App() {
   };
 
 
+  const handleAddCallbackURL = async () => {
+    const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
+    const addCallbackURL = await othent.addCallbackURL({ callbackURL: 'https://hello.com' });
+    const message = 'Add callback URL button clicked: ' + JSON.stringify(addCallbackURL);
+    console.log(message);
+    setOutput(message);
+  };
+
+
   const handleGetAPIKeys = async () => {
-    const API_keys = await getAPIKeys()
+    const othent = await Othent({ API_KEY: 'API_KEY', API_ID: 'API_ID' });
+    const API_keys = await othent.getAPIKeys()
     const message = 'Get API keys button clicked: ' + JSON.stringify(API_keys);
     console.log(message);
     setOutput(message);
@@ -276,10 +286,11 @@ function App() {
         <div className="title-small">Using LIVE Othent package: <a rel="noreferrer" href='https://github.com/Othent/SDK-example' target='_blank'>https://github.com/Othent/SDK-example</a></div>
         <div className="output">{output}</div>
       </div>
-
+      
 
       <div className="buttons-container">
         <button className="button" onClick={handlePingClick}>Ping</button>
+        <button className="button" onClick={handleAddCallbackURL}>Add callback URL</button>
         <button className="button" onClick={handleGetAPIKeys}>API Keys</button>
         <button className="button" onClick={handleLogInClick}>Log In</button>
         <button className="button" onClick={handleLogOutClick}>Log Out</button>
